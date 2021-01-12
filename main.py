@@ -92,19 +92,7 @@ class MainWindow(QMainWindow):
                         for piece in pieces:
                             if piece.x == x and piece.y == y:
                                 if piece.image[1] == 'K':
-                                    self.label.setGeometry(0, 0, 500, 400)
-                                    self.label.setAttribute(Qt.WA_TranslucentBackground)
-                                    if piece.image[0] == 'b':
-                                        font = QFont('Century Gothic', 37, Qt.red)
-                                        self.label.setFont(font)
-                                        self.label.move(20, 60)
-                                        self.label.setText('White won the game')
-                                    else:
-                                        font = QFont('Century Gothic', 37, Qt.red)
-                                        self.label.setFont(font)
-                                        self.label.move(20, 60)
-                                        self.label.setText('Black won the game')
-                                    self.label.show()
+                                    GameoverWindow(piece.image[0], self)
                                     gameover = True
                                 piece.hide()
                                 pieces.remove(piece)
