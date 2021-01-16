@@ -185,13 +185,14 @@ class ChessLabel(QLabel):
                         elif self.image[1] == 'K':
                             pos_to_remove = []
                             for p in pos:
+                                copy = grid[p[0]][p[1]]
                                 grid[p[0]][p[1]] = self.image
                                 grid[self.x][self.y] = '--'
                                 check, pi, ch = check_and_pins(white_turn)
                                 if check:
                                     pos_to_remove.append((p[0], p[1]))
                                 grid[self.x][self.y] = self.image
-                                grid[p[0]][p[1]] = '--'
+                                grid[p[0]][p[1]] = copy
                             pos = comprehension(pos, pos_to_remove)
 
                     elif len(checks) == 2:
@@ -200,13 +201,14 @@ class ChessLabel(QLabel):
                         elif self.image[1] == 'K':
                             pos_to_remove = []
                             for p in pos:
+                                copy = grid[p[0]][p[1]]
                                 grid[p[0]][p[1]] = self.image
                                 grid[self.x][self.y] = '--'
                                 check, pi, ch = check_and_pins(white_turn)
                                 if check:
                                     pos_to_remove.append((p[0], p[1]))
                                 grid[self.x][self.y] = self.image
-                                grid[p[0]][p[1]] = '--'
+                                grid[p[0]][p[1]] = copy
                             pos = comprehension(pos, pos_to_remove)
 
                     for p in pos:
@@ -243,13 +245,14 @@ class ChessLabel(QLabel):
                     else:
                         pos_to_remove = []
                         for p in pos:
+                            copy = grid[p[0]][p[1]]
                             grid[p[0]][p[1]] = self.image
                             grid[self.x][self.y] = '--'
                             check, pi, ch = check_and_pins(white_turn)
                             if check:
                                 pos_to_remove.append((p[0], p[1]))
                             grid[self.x][self.y] = self.image
-                            grid[p[0]][p[1]] = '--'
+                            grid[p[0]][p[1]] = copy
                         pos = comprehension(pos, pos_to_remove)
 
                         for p in pos:
